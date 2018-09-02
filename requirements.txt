@@ -1,0 +1,5 @@
+# Libraries for Tree View
+# Updating: `pip freeze` and manually set the packages that are required 
+# Testing: `virtualenv --clear venv` then install and run unit tests
+logmatic-python>=0.1.7
+pandas>=0.23.4
