@@ -38,14 +38,24 @@ $ python3 -m pip install '.'
 $ 
 ```
 
+TODO: Instead of virtualenv use: `python3 -m venv venv` and `. venv/bin/activate`
+
+
+
 Trouble shooting
 ----------------
 
 Manual install for Pandas:
-http://pandas.pydata.org/
+
 ```shell
-$ python3 -m pip install pandas
+$ python3 -m pip install pandas --upgrade
+$ python3 -m pip install logmatic-python --upgrade
+$ python3 -m pip install flask --upgrade
 ```
+
+Library locations:
+* http://pandas.pydata.org/
+* http://flask.pocoo.org
 
 Macos Python and clean up and reinstall:
 ```shell
