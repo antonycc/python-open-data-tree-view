@@ -25,7 +25,7 @@ def initialise_logger(target_logger, level, logging_format, reset_handlers=False
 
 
 def get_logger(name=sys.argv[0]):
-    level = 'INFO'
+    level = 'DEBUG'
     logging_format = 'text'
     named_logger = logging.getLogger(name)
     initialise_logger(named_logger, level, logging_format, True)

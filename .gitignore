@@ -106,3 +106,7 @@ venv.bak/
 
 # macos
 .DS_Store
+
+# IntelliJ
+.idea/
+*.iml

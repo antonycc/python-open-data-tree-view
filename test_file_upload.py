@@ -44,9 +44,9 @@ class TestAggregation(unittest.TestCase):
         df = load_dataframe()
         assert len(df)
         persistence.to_logging(df,
-                          floor_height_column=floor_height_label,
-                          face_direction_column=face_direction_label,
-                          window_vertical_position_column=window_vertical_position_label)
+                               floor_height_column=floor_height_label,
+                               face_direction_column=face_direction_label,
+                               window_vertical_position_column=window_vertical_position_label)
 
     def test_to_persistence(self):
         df = load_dataframe()
