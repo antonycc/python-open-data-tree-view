@@ -1,13 +1,12 @@
 # Purpose: Utility wrappers for persistence of suppporting data for Tree View
 
-import sys
-import datetime
-from pathlib import Path
+import hashlib
 
 import config
 
-
+# Config
 logger = config.get_logger()
+allowed_extensions = set(['csv'])
 
 
 def to_logging(df, floor_height_column, face_direction_column, window_vertical_position_column):
@@ -29,14 +28,14 @@ def to_dictarray(df, da):
 
 
 def dump_dictarray_head(da, columns=None):
-    if columns == None:
+    if not columns:
         columns = da.keys()
     logger.debug('head:')
     dump_dictarray_sub(da, columns, 0, 5)
 
 
 def dump_dictarray_tail(da, columns=None):
-    if columns == None:
+    if not columns:
         columns = da.keys()
     maxlen = dictarray_maxlen(da)
     logger.debug('tail:')
@@ -44,7 +43,7 @@ def dump_dictarray_tail(da, columns=None):
 
 
 def dump_dictarray_sub(da, columns, start, end):
-    if columns == None:
+    if not columns:
         columns = da.keys()
     for i in range(start, end):
         row_str = '('
@@ -62,3 +61,18 @@ def dictarray_maxlen(da):
     for column in columns:
         maxlen = max(maxlen, len(da[column]))
     return maxlen
+
+
+def populated_file(request, parameter_name):
+    return parameter_name in request.files \
+           and request.files[parameter_name] \
+           and request.files[parameter_name].filename
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in allowed_extensions
+
+
+def sha3(b):
+    return hashlib.sha3_256(b.encode('utf-8')).hexdigest()
