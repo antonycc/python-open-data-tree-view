@@ -7,14 +7,16 @@ A demonstration of individual building data combined with open data to calculate
 
 Features:
 * Excel as input
-* Excel as output
+* Excel as output (not implemented)
 * Remote store realisations (customer data, parameters and data sets)
 * Web Render
-* Open Data import
+* Open Data import (not implemented)
 
 
 Python 3 and libraries
 ----------------------
+
+Assuming Python 3 is installed with executables `python`,  `python3` and `pip3` available on the path from a unix like terminal.
 
 Virtualenv:
 ```shell
@@ -35,8 +37,12 @@ $ python --version
 Python 3.7.0 (default, Sep  2 2018, 14:52:21) 
 [Clang 9.1.0 (clang-902.0.39.2)]
 $ python3 -m pip install '.'
+$ export FLASK_ENV=development ; FLASK_APP=api.py flask run --host=0.0.0.0
 $ 
 ```
+
+After the last step you should be able to visit this in your browser: []http://127.0.0.1:5000/]
+
 
 TODO: Instead of virtualenv use: `python3 -m venv venv` and `. venv/bin/activate`
 
